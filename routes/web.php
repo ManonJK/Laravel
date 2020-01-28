@@ -19,6 +19,10 @@ Route::get('/users', function () {
     return view('users.index');
 });
 
+Route::get('/users/create', function () {
+    return view('users.create');
+});
+
 Route::get('user/{id}', 'UserController@show');
 
 Route::resource('users', 'UserController');

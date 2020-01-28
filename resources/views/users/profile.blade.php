@@ -9,6 +9,13 @@
         <div>Prénom : {{$user->firstname}}</div>
         <div>Email : {{$user->email}}</div>
         <div>Biographie : {{$user->biography}}</div>
+        <div>Compétences :
+            <ul>
+            @foreach($user->skills as $skill)
+                <li>{{$skill['name']}}</li>
+            @endforeach
+            </ul>
+        </div>
     </div>
 @endsection
 

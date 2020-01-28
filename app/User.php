@@ -37,4 +37,13 @@ class User extends Authenticatable
 //        'email_verified_at' => 'datetime',
     ];
 
+
+    /**
+     * Récupère les compétences de l'utilisateur.
+     */
+    public function skills()
+    {
+        return $this->belongsToMany('App\Skill')->withPivot('level');
+    }
+
 }

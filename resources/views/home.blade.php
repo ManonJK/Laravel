@@ -16,6 +16,13 @@
 
                     You are logged in!
                 </div>
+                <div>Compétences:
+                    <ul>
+                    @foreach($user->skills as $skill)
+                        <li>{{$skill['name']}}</li>
+                    @endforeach
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
