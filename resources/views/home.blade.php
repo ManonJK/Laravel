@@ -16,13 +16,14 @@
 
                     You are logged in!
                 </div>
-                <div>Compétences:
-                    <ul>
-                    @foreach($user->skills as $skill)
-                        <li>{{$skill['name']}}</li>
-                    @endforeach
-                    </ul>
-                </div>
+                <a class="btn btn-info" href="{{ route('skills.index',Auth::user()->id) }}">Voir mes compétences</a>
+{{--                <div>Compétences:--}}
+{{--                    <ul>--}}
+{{--                    @foreach(Auth::user()->skills as $skill)--}}
+{{--                        <li>{{$skill['name']}}</li>--}}
+{{--                    @endforeach--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
             </div>
         </div>
     </div>

@@ -12,7 +12,7 @@
         <div>Compétences :
             <ul>
             @foreach($user->skills as $skill)
-                <li>{{$skill['name']}}</li>
+                <li>{{$skill['name']}} - Niveau : {{$skill->pivot['level']}}</li>
             @endforeach
             </ul>
         </div>
