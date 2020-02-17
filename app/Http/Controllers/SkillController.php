@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class SkillController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(Skill::class, 'skill');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -57,7 +64,9 @@ class SkillController extends Controller
      */
     public function show(Skill $skill)
     {
+        $this->authorize('view', $skill);
         return view('skills.show',compact('skill'));
+
     }
 
     /**
@@ -68,6 +77,7 @@ class SkillController extends Controller
      */
     public function edit(Skill $skill)
     {
+        $this->authorize('update', $skill);
         return view('skills.edit',compact('skill'));
     }
 
@@ -80,6 +90,13 @@ class SkillController extends Controller
      */
     public function update(Request $request, Skill $skill)
     {
+
+        if($request->hasFile('logo')){
+            $skill->logo = $request->logo->getClientOriginalname();
+            $request->logo->storeAs(config('logo.path'), $skill->logo, 'public');
+        }
+
+
         $request->validate([
             'name' => 'required',
             'description' => 'required',

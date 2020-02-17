@@ -4,7 +4,12 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Mes compétences</h2>
+                @if(Auth::user()->isAdministrator())
+                    <h2>Compétences des utilisateurs</h2>
+                @else
+                    <h2>Mes compétences</h2>
+                @endif
+
             </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('skills.create') }}"> Create New skill</a>
