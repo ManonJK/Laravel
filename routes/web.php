@@ -11,25 +11,15 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
-});
-
-Route::get('/users', function () {
-    return view('users.index');
-});
-
-Route::get('/users/create', function () {
-    return view('users.create');
 });
 
 Route::get('user/{id}', 'UserController@show');
 
 Route::resource('users', 'UserController');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

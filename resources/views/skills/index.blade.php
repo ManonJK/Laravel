@@ -38,7 +38,7 @@
                 <td>{{ $skill->pivot['level'] }}</td>
                 <td>{{ $skill->description }}</td>
                 <td>
-                    <form action="{{ route('skill_user.destroy',$skill_user->skill_id, $skill_user->user_id) }}" method="POST">
+                    <form action="{{ route('skill_user.destroy',$skill->pivot['skill_id'], $skill->pivot['user_id']) }}" method="POST">
 
                         <a class="btn btn-info" href="{{ route('skills.show',$skill->id) }}">Show</a>
 
