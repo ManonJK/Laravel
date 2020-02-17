@@ -81,8 +81,7 @@ class Skill_userController extends Controller
     public function update(Request $request, Skill_user $skill_user)
     {
         $request->validate([
-            'name' => 'required',
-            'description' => 'required',
+            'level' => 'required',
         ]);
 
         $skill_user->update($request->all());

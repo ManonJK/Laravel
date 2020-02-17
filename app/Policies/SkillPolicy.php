@@ -57,7 +57,7 @@ class SkillPolicy
      */
     public function update(User $user, Skill $skill)
     {
-        return Auth::check() && (Auth::user()->isAdministrator());
+        return Auth::check();
     }
 
     /**
